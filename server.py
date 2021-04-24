@@ -1,8 +1,9 @@
 # server file for weather app
 from flask import Flask, render_template, request
+import requests
 
 #Api key to establish handshake between Accu weather
-API_KEY = "qQgGRb1A0A6R5HvKx7T37JCKdaAYG8GT"
+API_KEY = "X07jzvsGCliLNhfdBQUzvQW3wSSqGVkQ"
 
 app = Flask(__name__)
 
@@ -22,9 +23,10 @@ def get_weather_data():
                                  params=context)
 
     data = response.json()
-    #print(response, response_list, location)
+    print(response, data, location)
     
     location_key = data[0]['Key']
+    country = data[0]['Country']['LocalizedName']
 
     response1 = requests.get('http://dataservice.accuweather.com/currentconditions/v1/%s' % location_key,
                                  params=context)
@@ -39,6 +41,7 @@ def get_weather_data():
         location=location,
         Text=text,
         Temperature=temperature,
+        country=country
     )
 
 if __name__ == '__main__':
