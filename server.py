@@ -27,15 +27,14 @@ def get_weather_data():
     
     location_key = data[0]['Key']
     country = data[0]['Country']['LocalizedName']
-
-    response1 = requests.get('http://dataservice.accuweather.com/currentconditions/v1/%s' % location_key,
-                                 params=context)
+    #call weather Api to get the location's data. For getting any data from Accuweather, it's necessary to pas location.
+    response1 = requests.get('http://dataservice.accuweather.com/currentconditions/v1/%s' % location_key, params=context)
 
     # Process the JSON object into a list of results
     data1 = response1.json()
     text = data1[0]['WeatherText']
     temperature = data1[0]['Temperature']['Imperial']['Value']
-
+    #show the results of the api in weather.html and pass location details.
     return render_template(
         'weather.html',       
         location=location,
