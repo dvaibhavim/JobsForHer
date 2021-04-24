@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+</head>
+
+<body>
+    <section class="hero is-aprimary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    What's the weather like?
+                </h1>
+            </div>
+        </div>
+    </section>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row" style="margin:0 auto;">
+                <div class="input-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- By adding a form action, the form data is sent to '/get-weather' route on the server for processing -->
+                    <form action="/get-weather">
+                        <h1><i class="em em-boom"></i> <strong>Search your location's weather</strong> <i class="em em-boom"></i></h1>
+                        <input type="text" name="location" placeholder="location" style="border:1px dotted grey; border-radius:5px; padding:5px;">
+                        <input type="submit" class="btn btn-default" style="border:none; border-radius:5px; padding:8px; margin-left:15px; font-size:12px;">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
